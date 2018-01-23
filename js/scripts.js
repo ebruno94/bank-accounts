@@ -17,7 +17,7 @@ $(document).ready(function(){
     removeAccount: function(){
               var i = 0;
               this.accountHolders.forEach(function(account){
-                if (this.user === user){
+                if (this.user === currentUser.user){
                   Bank.accountHolders.slice(i, i+1);
                   $(this).parent().hide("ease");
                   $("#login").show("ease");
@@ -35,6 +35,48 @@ $(document).ready(function(){
           currentUser = account;
         };
       })
+    }
+  };
+
+  var Admin = {
+    user: "Admin",
+    pass: "Admin",
+    showAdmin: function() {
+      $("#login").hide("ease");
+      $("#adminContainer").show("ease");
+      $("#totalBankMoney").text("$" + Bank.totalMoney);
+      this.showAccounts();
+    },
+    showAccounts: function() {
+      Bank.accountHolders.forEach(function(account) {
+      $("#accountHolders").append('<div class="col-md-4"><div class="accountCard"><h3 class="accountName">' + account.name + '</h3><p class="accountBalance">$' + account.money +'</p><button type="button" class="deleteAccount">Delete Account</button></div></div>');
+      var user = account.user;
+      var money = account.money;
+      $("#accountHolders .accountCard").last().find("button").click(function() {
+          Admin.removeAccount(user, money);
+          $(this).parent().parent().hide();
+        });
+
+      });
+    },
+    removeAccount: function(user, money) {
+      var i = 0;
+      console.log(Bank.accountHolders[0]);
+      console.log(Bank.accountHolders[1]);
+      Bank.accountHolders.forEach(function(account){
+        if (account.user === user){
+          console.log(Bank.accountHolders);
+          Bank.accountHolders.splice(i, 1);
+          console.log(Bank.accountHolders);
+          Bank.totalMoney -= money;
+          $("#totalBankMoney").text("$" + Bank.totalMoney);
+        }else{
+          i++;
+        };
+      });
+    },
+    logout: function() {
+      $("#adminContainer").hide();
     }
   };
 
@@ -59,7 +101,10 @@ $(document).ready(function(){
 
   $("#login").submit(function(event){
     event.preventDefault();
-    if (Bank.logIn($("input#username").val(),$("input#password").val())){
+    if ($("input#username").val() === "Admin" && $("input#password").val() === "Admin") {
+      currentUser = Admin;
+      currentUser.showAdmin();
+    } else if (Bank.logIn($("input#username").val(),$("input#password").val())){
       $("#login").hide("ease");
       $("#account").show("ease");
       var user = $("input#username").val();
@@ -114,10 +159,11 @@ $(document).ready(function(){
     $("#balance").text(currentUser.money);
   });
 
-  $("#logout").click(function(){
+  $(".logout").click(function(){
     $(this).parent().hide("ease");
     $("#login").show("ease");
     $(".row > input").val("");
+    Admin.logout();
     currentUser = undefined;
   });
 });

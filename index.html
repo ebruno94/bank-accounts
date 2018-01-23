@@ -19,11 +19,10 @@
           <input type="text" class="form-control" id="username">
           <label>Password</label>
           <input type="text" class="form-control" id="password">
-          <button type="submit" class="btn btn-info">Log in!</button>
-          <button type="button" class="btn btn-info" id="createAccount">Create Account</button>
+          <button type="submit" class="btn">Log in!</button>
+          <button type="button" class="btn" id="createAccount">Create Account</button>
         </div>
       </form>
-      <br><br><br>
       <form id="create">
         <div class="row">
           <label>Name</label>
@@ -36,10 +35,9 @@
           <input type="text" class="form-control" id="newPass">
           <label>Re-type Password</label>
           <input type="text" class="form-control" id="confirmPass">
-          <button type="submit" class="btn btn-info">Create Account</button>
+          <button type="submit" class="btn">Create Account</button>
         </div>
       </form>
-      <br><br><br>
       <div class="row" id="account">
         <div class="col-md-5">
           <h5>Account Balance:</h5>
@@ -49,10 +47,29 @@
         <div class="col-md-5">
           <lable> Amount to Deposit/Withdraw </label>
           <input type="text" class="form-control" id="amount">
-          <button type="button" class="btn btn-info" id="deposit">Deposit</button>
-          <button type="button" class="btn btn-info" id="withdraw">Withdraw</button>
+          <button type="button" class="btn" id="deposit">Deposit</button>
+          <button type="button" class="btn" id="withdraw">Withdraw</button>
         </div>
-        <button type="button" class="btn btn-info" id="logout">Log Out</button>
+        <button type="button" class="btn logout">Log Out</button>
+      </div>
+      <div id="adminContainer">
+        <div class="row">
+          <div class="col-md-4">
+            <h5> Total Money in the Bank: </h5>
+            <h6 id="totalBankMoney"> </h6>
+            <button type="button" class="btn logout">Log Out</button>
+          </div>
+        </div>
+        <div class="row" id="accountHolders">
+          <h2>Current Active Bank Accounts</h2>
+          <!-- <div class="col-md-4">
+            <div class="accountCard">
+              <h3 class="accountName"></h3>
+              <p class="accountBalance"></p>
+              <button type="button">Delete Account</button>
+            </div>
+          </div> -->
+        </div>
       </div>
     </div>
   </body>
