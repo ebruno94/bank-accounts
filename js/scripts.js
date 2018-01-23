@@ -2,7 +2,7 @@ $(document).ready(function(){
   var Bank = {
     accountHolders = [];
     totalMoney = 0;
-  }
+  };
 
   function AccountHolder(name, user, pass, money) {
     this.name = name;
@@ -10,7 +10,15 @@ $(document).ready(function(){
     this.pass = pass;
     this.money= money;
     this.history = [];
-  }
+  };
+
+  AccountHolder.prototype.makeDeposit(){
+    this.money += $("#amount").val();
+  };
+
+  AccountHolder.prototype.makeWithdrawal(){
+    this.money -= $("#amount").val();
+  };
 
   $("#create").submit(function(event){
     event.preventDefault();
@@ -33,7 +41,12 @@ $(document).ready(function(){
       } else if (pass !== confirm){
         alert("Passwords do not match")
         $("#newPass, #confirmPass").val("");
-      };
-    }
+      }
+    };
+  });
+
+  $("#logout").click(function(){
+    $(this).parent().parent().hide("ease");
+    $(".row > input").val("");
   });
 });
