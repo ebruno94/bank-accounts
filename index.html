@@ -13,13 +13,16 @@
       <div class="jumbotron">
         <h1>EPIC Credit Union</h1>
       </div>
-      <div class="row" id="signin">
-        <label>Username</label>
-        <input type="text" class="form-control" id="username">
-        <label>Password</label>
-        <input type="text" class="form-control" id="password">
-        <button type="button" class="btn btn-info">Sign in!</button>
-      </div>
+      <form id="login">
+        <div class="row">
+          <label>Username</label>
+          <input type="text" class="form-control" id="username">
+          <label>Password</label>
+          <input type="text" class="form-control" id="password">
+          <button type="submit" class="btn btn-info">Log in!</button>
+          <button type="button" class="btn btn-info" id="createAccount">Create Account</button>
+        </div>
+      </form>
       <br><br><br>
       <form id="create">
         <div class="row">
@@ -46,8 +49,8 @@
         <div class="col-md-5">
           <lable> Amount to Deposit/Withdraw </label>
           <input type="text" class="form-control" id="amount">
-          <button type="button" class="btn btn-info">Deposit</button>
-          <button type="button" class="btn btn-info">Withdraw</button>
+          <button type="button" class="btn btn-info" id="deposit">Deposit</button>
+          <button type="button" class="btn btn-info" id="withdraw">Withdraw</button>
         </div>
         <button type="button" class="btn btn-info" id="logout">Log Out</button>
       </div>
