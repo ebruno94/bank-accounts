@@ -21,15 +21,21 @@
         <button type="button" class="btn btn-info">Sign in!</button>
       </div>
       <br><br><br>
-      <div class="row" id="create">
-        <label>Username</label>
-        <input type="text" class="form-control" id="newUser">
-        <label>Password</label>
-        <input type="text" class="form-control" id="newPass">
-        <label>Re-type Password</label>
-        <input type="text" class="form-control" id="confirmPass">
-        <button type="button" class="btn btn-info">Create Account</button>
-      </div>
+      <form id="create">
+        <div class="row">
+          <label>Name</label>
+          <input type="text" class="form-control" id="newName">
+          <label>Initial Deposit</label>
+          <input type="text" class="form-control" id="newMoney">
+          <label>Username</label>
+          <input type="text" class="form-control" id="newUser">
+          <label>Password</label>
+          <input type="text" class="form-control" id="newPass">
+          <label>Re-type Password</label>
+          <input type="text" class="form-control" id="confirmPass">
+          <button type="submit" class="btn btn-info">Create Account</button>
+        </div>
+      </form>
       <br><br><br>
       <div class="row" id="account">
         <div class="col-md-5">
@@ -43,6 +49,7 @@
           <button type="button" class="btn btn-info">Deposit</button>
           <button type="button" class="btn btn-info">Withdraw</button>
         </div>
+        <button type="button" class="btn btn-info">Log Out</button>
       </div>
     </div>
   </body>
