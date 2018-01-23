@@ -69,7 +69,6 @@ $(document).ready(function(){
       alert("Invalid username/password");
       $("#login > input").val("");
     };
-    console.log(Bank.totalMoney);
   });
 
   $("#createAccount").click(function(event){
