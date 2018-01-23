@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="js/jquery.js"></script>
+    <script src="js/scripts.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="utf-8">
+    <title>Epic Credit Union | Velavaraptors </title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+        <h1>EPIC Credit Union</h1>
+      </div>
+      <div class="row" id="signin">
+        <label>Username</label>
+        <input type="text" class="form-control" id="username">
+        <label>Password</label>
+        <input type="text" class="form-control" id="password">
+        <button type="button" class="btn btn-info">Sign in!</button>
+      </div>
+      <br><br><br>
+      <div class="row" id="create">
+        <label>Username</label>
+        <input type="text" class="form-control" id="newUser">
+        <label>Password</label>
+        <input type="text" class="form-control" id="newPass">
+        <label>Re-type Password</label>
+        <input type="text" class="form-control" id="confirmPass">
+        <button type="button" class="btn btn-info">Create Account</button>
+      </div>
+      <br><br><br>
+      <div class="row" id="account">
+        <div class="col-md-5">
+          <h5>Account Balance:</h5>
+          <h6 id="balance"></h6>
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-5">
+          <lable> Amount to Deposit/Withdraw </label>
+          <input type="text" class="form-control" id="amount">
+          <button type="button" class="btn btn-info">Deposit</button>
+          <button type="button" class="btn btn-info">Withdraw</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
