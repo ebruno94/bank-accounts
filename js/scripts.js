@@ -45,6 +45,7 @@ $(document).ready(function(){
       $("#login").hide("ease");
       $("#adminContainer").show("ease");
       $("#totalBankMoney").text("$" + Bank.totalMoney);
+      $(".logout").show();
       this.showAccounts();
     },
     showAccounts: function() {
@@ -77,6 +78,9 @@ $(document).ready(function(){
     },
     logout: function() {
       $("#adminContainer").hide();
+      $("#login").show("ease");
+      $(".row > input").val("");
+      currentUser = undefined;
     }
   };
 
@@ -129,7 +133,21 @@ $(document).ready(function(){
     var pass = $("#newPass").val();
     var confirm = $("#confirmPass").val();
 
-    if (money >= 0 && (pass === confirm)){
+    var accountNotExists = true;
+
+    var checkIfAccountNotExists = function(user) {
+      Bank.accountHolders.forEach(function(account) {
+        if (account.user === user) {
+          accountNotExists = false;
+          alert("Username already exists. please input a new username!")
+          $("#newUser").val('');
+        };
+      });
+    };
+
+    checkIfAccountNotExists(user);
+
+    if (money >= 0 && (pass === confirm) && accountNotExists) {
       // Add check if username already exists
       Bank.accountHolders.push(new AccountHolder(name, user, pass, money));
       $("form#create, #signin").hide("ease");
@@ -161,9 +179,12 @@ $(document).ready(function(){
 
   $(".logout").click(function(){
     $(this).parent().hide("ease");
+    $("#account").hide("ease");
     $("#login").show("ease");
     $(".row > input").val("");
-    Admin.logout();
     currentUser = undefined;
   });
+  $("#adminContainer").find("button").click(function() {
+    Admin.logout();
+  })
 });
